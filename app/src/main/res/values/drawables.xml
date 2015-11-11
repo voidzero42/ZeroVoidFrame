@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="greySystem" type="drawable">#fff0f0f0</item>
+    <item name="drawablewhite" type="drawable">@android:color/transparent</item>
+    <item name="transparent" type="drawable">@android:color/transparent</item>
+</resources>
