@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class CommonBiz {
+public class RequestErrorHandler {
 
     // TODO 1、网络问题 2、服务器问题 3、
     // java.net.ConnectException: failed to connect to /10.168.7.1 (port 8080)

@@ -1,20 +1,19 @@
 package com.zerovoid.house.biz;
 
 import com.google.gson.reflect.TypeToken;
-import com.zerovoid.common.biz.CommonBiz;
+import com.zerovoid.common.biz.RequestErrorHandler;
 import com.zerovoid.house.model.HouseBean;
 import com.zerovoid.http.JsonReponseHandler;
 import com.zerovoid.http.VollyHelperNew;
 
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by Administrator on 2015/11/11.
  */
-public class HouseHttpBiz extends CommonBiz {
+public class HouseHttpBiz extends RequestErrorHandler {
 
     /** 获取房屋列表 */
     public static void requestHouseList(VollyHelperNew.ResponseCallBack callback) {
