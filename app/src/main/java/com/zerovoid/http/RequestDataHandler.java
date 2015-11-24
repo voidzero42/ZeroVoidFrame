@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class JsonReponseHandler {
+public class RequestDataHandler {
 
     // FIXME 还是改成LIST MAP的形式比较好，比LIST 好
 

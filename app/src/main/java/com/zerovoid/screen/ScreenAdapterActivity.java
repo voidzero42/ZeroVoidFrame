@@ -51,7 +51,7 @@ public class ScreenAdapterActivity extends Activity{
         tvScreenSize.setText("屏幕分辨率 = " + getDm().widthPixels + "px * "
                 + getDm().heightPixels + "px ( width * height )");
 		/* 屏幕密度 */
-        tvDensity.setText("densityDpi=" + getDm().densityDpi
+        tvDensity.setText("densityDpi（每英寸像素点数）=" + getDm().densityDpi
                 + ",scaledDensity=" + getDm().scaledDensity);
 
         Log.e("TestActivity", "DEFAULT=" + "" + DisplayMetrics.DENSITY_DEFAULT

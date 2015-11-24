@@ -3,7 +3,7 @@ package com.zerovoid.house.biz;
 import com.google.gson.reflect.TypeToken;
 import com.zerovoid.common.biz.RequestErrorHandler;
 import com.zerovoid.house.model.HouseBean;
-import com.zerovoid.http.JsonReponseHandler;
+import com.zerovoid.http.RequestDataHandler;
 import com.zerovoid.http.VollyHelperNew;
 
 import org.json.JSONObject;
@@ -23,7 +23,7 @@ public class HouseHttpBiz extends RequestErrorHandler {
     public static List<HouseBean> handleHouseList(JSONObject response) {
         List<HouseBean> list = null;
         if (isSuccess(response)) {
-            list = JsonReponseHandler.getListFromJsonWithPageEntity(response, new TypeToken<List<HouseBean>>() {
+            list = RequestDataHandler.getListFromJsonWithPageEntity(response, new TypeToken<List<HouseBean>>() {
             }.getType(), null, null);
         }
         return list;
