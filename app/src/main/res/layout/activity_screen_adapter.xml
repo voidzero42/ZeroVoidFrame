@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="屏幕适配"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="20sp"/>
     </RelativeLayout>
 
