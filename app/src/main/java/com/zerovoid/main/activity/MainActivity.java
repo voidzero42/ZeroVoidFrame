@@ -1,22 +1,21 @@
-package com.zerovoid.zerovoidframe;
+package com.zerovoid.main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
 import com.zerovoid.screen.ScreenAdapterActivity;
+import com.zerovoid.zerovoidframe.R;
 
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,11 +26,20 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.btnScreen)
     Button btnScreen;
 
+    @Bind(R.id.rvContent)
+    RecyclerView rvContent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        test();
+        initSupportDesign();
+        initRecycleView();
+    }
+
+    private void initSupportDesign() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -43,19 +51,14 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        test();
+    }
+
+    private void initRecycleView() {
+        rvContent.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void test() {
-        Timestamp ts = new Timestamp(System.currentTimeMillis());
-        String tsStr = "";
-        DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        try {
-            tsStr = sdf.format(ts);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Log.e(MainActivity.class.getSimpleName(), "time=" + tsStr);
+
     }
 
     @OnClick(R.id.btnScreen)

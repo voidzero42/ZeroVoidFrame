@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
+    tools:context="com.zerovoid.main.activity.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <TextView
@@ -27,4 +27,11 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView11"
         android:text="屏幕适配"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnScreen"
+        android:layout_marginTop="10dp"/>
 </RelativeLayout>
