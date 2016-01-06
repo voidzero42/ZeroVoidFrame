@@ -1,4 +1,4 @@
-package com.zerovoid.library.widget;
+package com.zerovoid.lib.widget;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
