@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -77,6 +78,10 @@ public class TestSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         private Matrix matrix;
         private Paint painter;
         private Paint paintText;
+        private Camera camera;
+        private int mDepthZ;
+        private float centerX;
+        private float centerY;
 
         public DrawClock(SurfaceHolder surfaceHolder, Resources resources) {
             this.surfaceHolder = surfaceHolder;
@@ -101,7 +106,13 @@ public class TestSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             paintText.setTextSize(80);
             // 消除锯齿
             paintText.setFlags(Paint.ANTI_ALIAS_FLAG);
+            camera = new Camera();
+            mDepthZ = 1;
+            centerX = picture.getWidth() / 2;
+            centerY = picture.getHeight() / 2;
         }
+
+        float degrees = 0;
 
         /**
          * 控制绘制线程是否运行
@@ -125,20 +136,34 @@ public class TestSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                         float[] f = new float[9];
                         matrix.getValues(f);
                         float y = f[Matrix.MTRANS_Y];
-                        matrix.postTranslate(0, -10);
+
+
+                        camera.save();
+//                        float degrees = 0 + ((180 - 0) * 1);
+                        degrees = degrees+5;
+                        camera.translate(0.0f, 0.0f, mDepthZ * 1);
+                        camera.rotateY(degrees);
+                        camera.getMatrix(matrix);
+                        camera.restore();
+
+                        matrix.preTranslate(-centerX, -centerY);
+                        matrix.postTranslate(centerX, centerY);
+//                        matrix.postTranslate(0, -10);
+
                         canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
                         canvas.drawBitmap(picture, matrix, this.painter);
-                        canvas.drawText("快来抢红包啊", getWidth() / 2 - 6 * 80/2, getHeight() / 2, paintText);
+                        canvas.drawText("快来抢红包啊", getWidth() / 2 - 6 * 80 / 2, getHeight() / 2, paintText);
                         float[] f1 = new float[9];
                         matrix.getValues(f1);
                         float y1 = f1[Matrix.MTRANS_Y];
                         if (y1 < 10) {
-                            matrix.setTranslate(getWidth() / 2-picture.getWidth()/2, 800);
+                            matrix.setTranslate(getWidth() / 2 - picture.getWidth() / 2, 800);
                         }
+//                        Thread.sleep(1000);
                     }
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
-                } finally {
+                }  finally {
                     if (canvas != null) {
                         surfaceHolder.unlockCanvasAndPost(canvas);
                     }
