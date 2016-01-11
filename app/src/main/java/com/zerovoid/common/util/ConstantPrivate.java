@@ -1,4 +1,4 @@
-package com.zerovoid.http;
+package com.zerovoid.common.util;
 
 /**
  * 各自测试用参数，勿上传

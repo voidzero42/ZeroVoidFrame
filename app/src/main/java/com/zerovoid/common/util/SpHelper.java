@@ -4,19 +4,19 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-public class SharePreferenceUtilNew {
+public class SpHelper {
 
-    private static SharePreferenceUtilNew sharePreferenceUtil;
+    private static SpHelper sharePreferenceUtil;
 
     private SharedPreferences spInfo;
 
-    public SharePreferenceUtilNew() {
+    public SpHelper() {
 
     }
 
-    public static SharePreferenceUtilNew getInstance() {
+    public static SpHelper getInstance() {
         if (sharePreferenceUtil == null) {
-            sharePreferenceUtil = new SharePreferenceUtilNew();
+            sharePreferenceUtil = new SpHelper();
         }
         return sharePreferenceUtil;
     }
@@ -32,8 +32,8 @@ public class SharePreferenceUtilNew {
      * @return
      */
 
-    public static SharePreferenceUtilNew getSharePreference(Context context) {
-        sharePreferenceUtil = new SharePreferenceUtilNew(context);
+    public static SpHelper getSharePreference(Context context) {
+        sharePreferenceUtil = new SpHelper(context);
         return sharePreferenceUtil;
     }
 
@@ -45,7 +45,7 @@ public class SharePreferenceUtilNew {
         return this.spInfo;
     }
 
-    public SharePreferenceUtilNew(Context paramContext) {
+    public SpHelper(Context paramContext) {
         this.spInfo = paramContext.getSharedPreferences("user_info", 0);
     }
 }

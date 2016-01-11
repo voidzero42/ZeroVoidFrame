@@ -1,7 +1,6 @@
 package com.zerovoid.house.biz;
 
-import com.zerovoid.common.util.HttpConfig;
-import com.zerovoid.http.ConstantPrivate;
+import com.zerovoid.common.util.ConstantPrivate;
 
 /**
  * Created by Administrator on 2015/11/11.

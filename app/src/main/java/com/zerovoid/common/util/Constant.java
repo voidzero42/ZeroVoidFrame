@@ -1,9 +1,10 @@
-package com.zerovoid.http;
+package com.zerovoid.common.util;
 
-/**
- * Created by Administrator on 2015/11/11.
- */
-public class HttpConfig {
+import android.annotation.SuppressLint;
+
+@SuppressLint("SdCardPath")
+public class Constant {
+
     /** Intent传递Bean的KEY */
     public static final String KEY_INTENT_BEAN = "bean";
 
@@ -37,6 +38,39 @@ public class HttpConfig {
     /** 500的提示 */
     public static final String JSON500 = "网络连接不稳定";
 
+    /** 更新标示 **/
+    public static final int UPDATE_SERVICE = 3;
+
+    public static final String IMAGE_SPLITE = "##";
+
+    public static final String CHAR_REPLACE = "$s$";
+
+    public static final String LOADING = "正在加载，请稍后...";
+
+    /** 有效 */
+    public static final String STATE_VALID = "0";
+
+    /** 无效 */
+    public static final String STATE_INVALID = "1";
+
+    /** DES 加密key值 */
+    public static final String DES_KEY = "abcdefgh";
+
+    public static final String IMAGE_PATH = "/wxt";
+
+    public static int SCREEN_WIDTH = 0;
+
+    public static int PAGE_SIZE_DEFAULLT = 7;
+    public static int PAGE_NO_DEFAULT = 1;
+    /*--------------------------------SP Key------------------------------------*/
+
+    /** SharedPreferences的key */
+    public static final String SP_NAME_PROJECT = "FatTail";
+    /** UMeng推送的key */
+    public static final String SP_KEY_PUSH = "push";
+    public static final String SP_KEY_OWER_ID = "owerID";
+    public static final String SP_KEY_COMMUNITY_ID = "communityID";
+
     /** 服务器返回的错误信息 */
     public static final int WHAT_ERROR_HTTP = 500;
 
@@ -57,4 +91,8 @@ public class HttpConfig {
 
     /** 评论列表 */
     public static final int WHAT_COMMENT_LIST = 104;
+
+    /** 双击退出 */
+    public static final int WHAT_EXIT = 105;
+
 }

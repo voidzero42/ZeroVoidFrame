@@ -34,4 +34,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnScreen"
         android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rvContent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/btnScreen"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_toRightOf="@+id/btnScreen"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:text="·································································································"/>
 </RelativeLayout>

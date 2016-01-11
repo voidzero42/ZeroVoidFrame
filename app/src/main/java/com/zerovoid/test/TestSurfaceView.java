@@ -87,7 +87,7 @@ public class TestSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             this.surfaceHolder = surfaceHolder;
             //图片资源
             picture = BitmapFactory.decodeResource(resources,
-                    R.drawable.ic_launcher);
+                    R.drawable.ic_coin);
             //矩阵
             matrix = new Matrix();
             //画笔
@@ -140,16 +140,17 @@ public class TestSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
                         camera.save();
 //                        float degrees = 0 + ((180 - 0) * 1);
-                        degrees = degrees+5;
+                        degrees = degrees + 5;
                         camera.translate(0.0f, 0.0f, mDepthZ * 1);
                         camera.rotateY(degrees);
                         camera.getMatrix(matrix);
                         camera.restore();
 
+
+//                        matrix.postTranslate(0, -10);
+//                        matrix.setTranslate(getWidth() / 2 - picture.getWidth() / 2, getHeight() / 2 - picture.getHeight() / 2);
                         matrix.preTranslate(-centerX, -centerY);
                         matrix.postTranslate(centerX, centerY);
-//                        matrix.postTranslate(0, -10);
-
                         canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
                         canvas.drawBitmap(picture, matrix, this.painter);
                         canvas.drawText("快来抢红包啊", getWidth() / 2 - 6 * 80 / 2, getHeight() / 2, paintText);
@@ -163,7 +164,7 @@ public class TestSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                     }
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
-                }  finally {
+                } finally {
                     if (canvas != null) {
                         surfaceHolder.unlockCanvasAndPost(canvas);
                     }

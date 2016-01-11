@@ -3,16 +3,15 @@ package com.zerovoid.house.activity;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 
-import com.zerovoid.common.util.DialogHelper;
-import com.zerovoid.common.util.ToastHelper;
-import com.zerovoid.house.adapter.HouseExListViewAdapter;
+import com.zerovoid.house.adapter.HouseLvAdapter;
 import com.zerovoid.house.adapter.HouseLvAdapter;
 import com.zerovoid.house.biz.HouseHttpBiz;
 import com.zerovoid.house.model.HouseBean;
-import com.zerovoid.http.VollyHelperNew;
+import com.zerovoid.lib.http.VolleyHttpUtil;
+import com.zerovoid.lib.util.ToastHelper;
+import com.zerovoid.lib.view.DialogHelper;
 import com.zerovoid.zerovoidframe.R;
 
 import org.json.JSONObject;
@@ -52,7 +51,7 @@ public class HouseListActivityWithLv extends Activity {
     private void requestHouseList() {
         dialog = DialogHelper.getInstance().createLoadingDialog(this, "正在加载中");
         dialog.show();
-        HouseHttpBiz.requestHouseList(new VollyHelperNew.ResponseCallBack() {
+        HouseHttpBiz.requestHouseList(new VolleyHttpUtil.ResponseCallBack(){
             @Override
             public void handleResponse(JSONObject response, int errCode) {
                 dialog.dismiss();

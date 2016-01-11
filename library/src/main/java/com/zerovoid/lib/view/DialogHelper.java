@@ -1,7 +1,6 @@
-package com.zerovoid.common.util;
+package com.zerovoid.lib.view;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.view.LayoutInflater;
@@ -10,7 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.zerovoid.zerovoidframe.R;
+import com.zerovoid.library.R;
+
 
 /**
  * 进度条
