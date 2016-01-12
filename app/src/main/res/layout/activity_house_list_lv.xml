@@ -6,7 +6,7 @@
 
     <include
         android:id="@+id/includeComSug"
-        layout="@layout/include_topbar"
+        layout="@layout/top_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
 

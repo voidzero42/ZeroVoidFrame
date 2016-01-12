@@ -1,4 +1,4 @@
-package com.zerovoid.common.view.yfRecyclerView;
+package com.zerovoid.lib.view.yfRecyclerView;
 
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;

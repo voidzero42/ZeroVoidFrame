@@ -1,4 +1,4 @@
-package com.zerovoid.common.adapter;
+package com.zerovoid.lib.adapter;
 
 import android.view.View;
 import android.view.ViewGroup;

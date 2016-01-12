@@ -16,9 +16,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 橙子服务端的JSON返回值的专用处理类
+ * 服务端的JSON返回值的专用处理类
  *
- * @author 吴格非
+ * @author 绯若虚无
  */
 public class OrangeDataHandler {
 
@@ -68,7 +68,7 @@ public class OrangeDataHandler {
     }
 
     /**
-     * 服务端橙子标准JSON格式，返回{"errCode":0,"errInfo":"OK","entity":{{"KEY":"VALUE"},{}
+     * 服务端标准JSON格式，返回{"errCode":0,"errInfo":"OK","entity":{{"KEY":"VALUE"},{}
      * ...} 其中Entity的内容，若Android有建立对应的Bean类，则可以使用此方法直接将JSON转为Bean类
      *
      * @param response 服务端返回的JSON
@@ -246,7 +246,7 @@ public class OrangeDataHandler {
 
                 }
                 if (list == null) {
-                    list = new ArrayList<T>();
+                    list = new ArrayList<>();
                 }
 
             }

@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 /**
  * 字符串操作工具包
  *
- * @version 20160111_wgf
+ * @version 20160111_绯若虚无
  */
 public class StringUtil {
 

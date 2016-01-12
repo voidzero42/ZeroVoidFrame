@@ -3,7 +3,7 @@ package com.zerovoid.orange.http;
 import android.os.Environment;
 
 /**
- * 橙子服务端的专用参数
+ * 服务端的专用参数
  */
 public class OrangeHttpConstant {
     public static final String SP_NAME = "OrangelifeBase";

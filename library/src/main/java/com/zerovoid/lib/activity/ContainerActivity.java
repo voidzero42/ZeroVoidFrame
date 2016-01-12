@@ -1,22 +1,18 @@
-package com.zerovoid.common.activity;
+package com.zerovoid.lib.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.FrameLayout;
 
-import com.zerovoid.zerovoidframe.R;
 
-import butterknife.Bind;
+import com.zerovoid.library.R;
+
 import butterknife.ButterKnife;
 
 /**
  * 容器类
- * Created by 吴格非 on 2015/12/21.
+ * Created by 绯若虚无 on 2015/12/21.
  */
 public class ContainerActivity extends BaseActivity {
-
-    @Bind(R.id.container)
-    FrameLayout container;
 
 
     @Override

@@ -1,4 +1,4 @@
-package com.zerovoid.common.fragment;
+package com.zerovoid.lib.fragment;
 
 import android.support.v4.app.Fragment;
 

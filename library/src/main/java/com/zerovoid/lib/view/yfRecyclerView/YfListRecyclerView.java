@@ -1,4 +1,4 @@
-package com.zerovoid.common.view.yfRecyclerView;
+package com.zerovoid.lib.view.yfRecyclerView;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -100,9 +100,9 @@ public class YfListRecyclerView extends RecyclerView {
         if (null == drawable) {
             throw new NullPointerException("drawable resource is null");
         }
-        addItemDecoration(new RecyclerView.ItemDecoration() {
+        addItemDecoration(new ItemDecoration() {
             @Override
-            public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
+            public void onDrawOver(Canvas c, RecyclerView parent, State state) {
                 int left = parent.getPaddingLeft();
                 int right = parent.getWidth() - parent.getPaddingRight();
 
@@ -110,7 +110,7 @@ public class YfListRecyclerView extends RecyclerView {
                 for (int i = 0; i < childCount; i++) {
                     View child = parent.getChildAt(i);
 
-                    RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
+                    LayoutParams params = (LayoutParams) child.getLayoutParams();
 
                     int top = child.getBottom() + params.bottomMargin;
                     int bottom;
@@ -163,7 +163,7 @@ public class YfListRecyclerView extends RecyclerView {
      */
     public void enableAutoLoadMore(final YfListInterface.YfLoadMoreListener loadMoreListener) {
 
-        addOnScrollListener(new RecyclerView.OnScrollListener() {
+        addOnScrollListener(new OnScrollListener() {
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {

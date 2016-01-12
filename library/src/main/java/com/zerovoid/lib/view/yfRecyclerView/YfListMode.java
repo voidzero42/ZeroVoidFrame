@@ -1,4 +1,4 @@
-package com.zerovoid.common.view.yfRecyclerView;
+package com.zerovoid.lib.view.yfRecyclerView;
 
 /**
  * Created by yefeng on 7/24/15.

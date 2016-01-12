@@ -1,17 +1,18 @@
-package com.zerovoid.common.activity;
+package com.zerovoid.lib.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 
-import com.zerovoid.common.view.yfRecyclerView.RecycleViewAdapter;
-import com.zerovoid.common.view.yfRecyclerView.YfListInterface;
+import com.zerovoid.lib.view.yfRecyclerView.RecycleViewAdapter;
+import com.zerovoid.lib.view.yfRecyclerView.YfListInterface;
+
 
 /**
  * Created by YangWei
  * on 2015/12/22.
  */
-public abstract class BaseRecyleViewActivity extends BaseActivity implements YfListInterface.YfLoadMoreListener{
+public abstract class BaseYfRecyclerViewActivity extends BaseActivity implements YfListInterface.YfLoadMoreListener{
     protected boolean mLoadingLock = false;
     protected int pageSize =1;
     protected int pageNo = 8;

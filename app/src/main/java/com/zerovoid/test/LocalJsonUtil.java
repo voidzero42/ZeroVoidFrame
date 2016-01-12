@@ -1,4 +1,4 @@
-package com.zerovoid.common.test;
+package com.zerovoid.test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

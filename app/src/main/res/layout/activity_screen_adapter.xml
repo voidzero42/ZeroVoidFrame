@@ -46,29 +46,6 @@
             android:layout_height="wrap_content"
             android:text="手机型号"/>
 
-        <TextView
-            android:id="@+id/tvRelease"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SDK版本号"/>
-
-        <TextView
-            android:id="@+id/tvScreenSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="屏幕分辨率"/>
-
-        <TextView
-            android:id="@+id/tvScreenSizeDp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="分辨率DP"/>
-
-        <TextView
-            android:id="@+id/tvDensity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Desity"/>
     </LinearLayout>
 
     <TextView

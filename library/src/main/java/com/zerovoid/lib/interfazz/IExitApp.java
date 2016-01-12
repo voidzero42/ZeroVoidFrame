@@ -3,7 +3,7 @@ package com.zerovoid.lib.interfazz;
 import android.app.Activity;
 
 /**
- * Created by 吴格非 on 2015/12/14.
+ * Created by 绯若虚无 on 2015/12/14.
  */
 public interface IExitApp {
     void finishActivity(Activity activity);

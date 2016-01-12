@@ -1,4 +1,4 @@
-package com.zerovoid.common.fragment;
+package com.zerovoid.lib.fragment;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -6,9 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zerovoid.common.view.yfRecyclerView.RecycleViewAdapter;
+import com.zerovoid.lib.view.yfRecyclerView.RecycleViewAdapter;
 
-public abstract class RefreshBaseFragment extends BaseFragment {
+
+public abstract class BaseYfRecyclerViewFragment extends BaseFragment {
     protected boolean mLoadingLock = false;
     protected int pageSize = 2;
     protected int pageNo =8;

@@ -8,7 +8,7 @@ import android.net.NetworkInfo;
 /**
  * 网络状态检测工具
  * 
- * @author WuGefei-140630
+ * @author 绯若虚无-140630
  * 
  * 
  */

@@ -11,7 +11,7 @@ import android.widget.Toast;
 /**
  * Toast工具类
  *
- * @version 20160111_wgf
+ * @version 20160111_绯若虚无
  */
 public class ToastHelper {
     private static Handler handler = new Handler(Looper.getMainLooper());

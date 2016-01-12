@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 /**
  * 通用HTTP处理逻辑
- * Created by wgf on 2015/9/17.
+ * Created by 绯若虚无 on 2015/9/17.
  */
 public class OrangeErrorHandler {
 
