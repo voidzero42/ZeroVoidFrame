@@ -1,15 +1,17 @@
 package com.zerovoid.application;
 
 
+import android.app.Activity;
 import android.app.Application;
 import android.util.Log;
 
 import com.zerovoid.common.util.SpHelper;
 import com.zerovoid.lib.http.VolleyHttpUtil;
+import com.zerovoid.lib.interfazz.IExitApp;
 import com.zerovoid.lib.util.ToastHelper;
 
 
-public class InitApplication extends Application {
+public class InitApplication extends Application implements IExitApp{
     private static final String TAG = InitApplication.class.getSimpleName();
     private static InitApplication mInstance;
 
@@ -58,5 +60,30 @@ public class InitApplication extends Application {
     public void onLowMemory() {
         super.onLowMemory();
         Log.e(TAG, "onLowMemory: 内存不足，请注意安全");
+    }
+
+    @Override
+    public void finishActivity(Activity activity) {
+
+    }
+
+    @Override
+    public void addActivity(Activity activity) {
+
+    }
+
+    @Override
+    public void exit() {
+
+    }
+
+    @Override
+    public void clearCache() {
+
+    }
+
+    @Override
+    public void clearToken() {
+
     }
 }
