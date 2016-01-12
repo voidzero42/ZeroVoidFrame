@@ -6,5 +6,5 @@ package com.zerovoid.common.util;
  * @author 绯若虚无
  */
 public class ConstantPrivate {
-    public static final String SERVER_URL = "http://developer.17orange.com:29088/mpc/index.php/";
+    public static final String SERVER_URL = "http://localhost:8080";
 }

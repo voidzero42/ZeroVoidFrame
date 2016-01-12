@@ -1,4 +1,4 @@
-package com.zerovoid.common.view.other;
+package com.zerovoid.lib.view.other;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -17,7 +17,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.zerovoid.zerovoidframe.R;
+import com.zerovoid.library.R;
 
 
 /**

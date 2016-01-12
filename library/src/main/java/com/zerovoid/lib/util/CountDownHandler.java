@@ -32,6 +32,10 @@ public class CountDownHandler extends Handler {
         mWhat = what;
     }
 
+    public void startTimer(int second) {
+        startTimer(String.valueOf(second));
+    }
+
     public void startTimer(String second) {
         hasStop = false;
         //TODO 对Handler的机制还是不了解，先这么写

@@ -26,7 +26,7 @@ public class OrangeDataHandler {
     //FIXME 完善List<Map>和 Map 的处理
 
     /**
-     * 服务端橙子标准JSON格式，返回{"errCode":0,"errInfo":"OK","entity":{{"KEY":"VALUE"},{}
+     * 服务端JSON格式，返回{"errCode":0,"errInfo":"OK","entity":{{"KEY":"VALUE"},{}
      * ...}
      *
      * @param response 服务端返回的JSON
@@ -155,7 +155,6 @@ public class OrangeDataHandler {
      * @param response 服务器的HTTP响应，JSON数据，之所以用object，是希望将msg.obj直接传送过来
      * @param type     List的数据类型，如List<Comment>
      * @param dialog   进度对话框
-     * @author 陈福荣, 吴格非
      */
     public static <T> List<T> getListFromJson(Object response, Type type,
                                               String beforeListKey, String listKey,

@@ -6,7 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.zerovoid.zerovoidframe.R;
+
+import com.zerovoid.library.R;
 
 import java.util.List;
 

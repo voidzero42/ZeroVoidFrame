@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.zerovoid.house.adapter.HouseLvAdapter;
-import com.zerovoid.house.adapter.HouseLvAdapter;
 import com.zerovoid.house.biz.HouseHttpBiz;
 import com.zerovoid.house.model.HouseBean;
 import com.zerovoid.lib.http.VolleyHttpUtil;
 import com.zerovoid.lib.util.ToastHelper;
-import com.zerovoid.lib.view.DialogHelper;
+import com.zerovoid.lib.view.other.DialogHelper;
 import com.zerovoid.zerovoidframe.R;
 
 import org.json.JSONObject;

@@ -15,6 +15,16 @@
             android:layout_height="450dp"
             android:layout_centerInParent="true" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView13"
+            android:layout_alignTop="@+id/sur"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="91dp"/>
+
     </RelativeLayout>
 
 </RelativeLayout>

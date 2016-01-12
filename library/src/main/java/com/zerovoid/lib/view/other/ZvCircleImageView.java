@@ -1,4 +1,4 @@
-package com.zerovoid.lib.view;
+package com.zerovoid.lib.view.other;
 
 import android.content.Context;
 import android.graphics.Canvas;

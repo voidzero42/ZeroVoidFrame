@@ -1,4 +1,4 @@
-package com.zerovoid.lib.view;
+package com.zerovoid.lib.view.other;
 
 import android.app.Dialog;
 import android.content.Context;

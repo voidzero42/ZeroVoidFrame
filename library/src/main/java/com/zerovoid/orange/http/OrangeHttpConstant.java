@@ -24,22 +24,13 @@ public class OrangeHttpConstant {
     public static final String RESULT_KEY_ENTITY = "entity";
     /** 列表 */
     public static final String RESULT_KEY_PAGE_ENTITY = "pageEntity";
-    /** 服务器返回的错误信息 */
-    public static final int WHAT_ERROR_HTTP = 500;
 
     /** accessToken过期 */
     public static final int WHAT_TOKEN_EXPIRED = 1011;
     /** 登录已过期 */
     public static final String RESULT_LOGIN_OUT_OF_DATE = "55";
-    /** OrangeLife协议标准，返回成功 */
+    /** 协议标准，返回成功 */
     public static final String RESULT_OK = "OK";
-
-    /** 图片本地缓存文件夹地址 */
-    public final static String IMAGE_CACHE_PATH = Environment
-            .getExternalStorageDirectory() + "/orangelife/cache/img/";
-    /** 图片临时文件夹地址 */
-    public static final String IMAGE_TEMP_PATH = Environment
-            .getExternalStorageDirectory() + "/orangelife/cache/temp/";
 
     /** 业务状态码 */
     public static final String ERRCODE_BIZ_HEAD = "98";

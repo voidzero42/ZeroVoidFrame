@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.zerovoid.zerovoidframe.R;
+import com.zerovoid.library.R;
 
 
 /**
