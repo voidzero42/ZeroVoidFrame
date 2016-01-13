@@ -21,8 +21,11 @@ public class LogE {
     }
 
     public static void E(String tag, String msg) {
-        if (tag == null || msg == null) {
-            return;
+        if (tag == null) {
+            tag = TAG;
+        }
+        if (msg == null) {
+            msg = "In LogE : the msg is null!";
         }
         if (IS_DEBUG) {
             android.util.Log.e(tag, msg);
