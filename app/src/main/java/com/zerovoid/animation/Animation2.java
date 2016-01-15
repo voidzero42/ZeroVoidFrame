@@ -1,4 +1,4 @@
-package com.zerovoid.test;
+package com.zerovoid.animation;
 
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;

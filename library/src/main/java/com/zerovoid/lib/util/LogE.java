@@ -3,6 +3,7 @@ package com.zerovoid.lib.util;
 /**
  * 简化版LOG，只打印Error级别
  * Created by 绯若虚无 on 2015/11/25.
+ * @version 160113 zv
  */
 public class LogE {
     private static boolean IS_DEBUG = false;

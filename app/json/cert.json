@@ -1,0 +1,49 @@
+{
+  "errInfo": "ok",
+  "entity":    {
+    "identityPhoto": "",
+    "phone": "18759146512",
+    "merchantLogo": "http:....",
+    "dispatching": "24324",
+    "merID": "00ee8a14-c7b0-4c76-91e0-580b6806dd9f",
+    "hasCert": "0",
+    "contact": "张三",
+    "dispatchs":       [
+      {
+        "dispatchID": "225fca6c-ac5d-4d24-8a77-76a7d3e0c726",
+        "merID": "00ee8a14-c7b0-4c76-91e0-580b6806dd9f",
+        "dispatchName": "到店提货",
+        "dispatchType": "2",
+        "fee": 0,
+        "limitFee": 0,
+        "status": "1",
+        "tscreate": 1448884317000,
+        "tsedit": 1448884317000,
+        "createuserID": null,
+        "edituserID": null,
+        "itemStat": "1"
+      },
+      {
+        "dispatchID": "22ed1159-02e3-41dd-9c10-eb20a86605cb",
+        "merID": "00ee8a14-c7b0-4c76-91e0-580b6806dd9f",
+        "dispatchName": "邮寄",
+        "dispatchType": "1",
+        "fee": 10,
+        "limitFee": 100,
+        "status": "0",
+        "tscreate": 1448884317000,
+        "tsedit": 1448884317000,
+        "createuserID": null,
+        "edituserID": null,
+        "itemStat": "1"
+      }
+    ],
+    "merchantPhoto": "http://7te8s5.com2.z0.glb.qiniucdn.com/web_1448884264421350.jpg",
+    "merchantType": "1",
+    "merchantName": "烤鱼",
+    "stree": "鼓楼区梅峰路",
+    "merchantTypeName": "企业商户",
+    "introduction": "简介"
+  },
+  "errCode": "0"
+}

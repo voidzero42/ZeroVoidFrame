@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/pageerrLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/window_background"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/img_error_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_above="@+id/view"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_no_data"
+                    android:contentDescription="@null"
+                    android:visibility="gone"/>
+                <com.curry.android.view.ProgressWheel
+                    android:id="@+id/progress_wheel"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    wheel:matProg_barColor="#5588FF"
+                    wheel:matProg_progressIndeterminate="true" />
+                <!--<ProgressBar
+                    android:id="@+id/animProgress"
+                    style="@style/loading"
+                    android:layout_above="@+id/view"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="30dip"
+                    android:layout_height="30dip"/>-->
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="1dp"
+                    android:layout_height="1dp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_error_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10.0dip"
+                android:gravity="center"
+                android:lines="2"
+                android:textColor="@color/main_gray"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

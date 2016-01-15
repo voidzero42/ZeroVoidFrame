@@ -60,6 +60,7 @@ public class VolleyHttpUtil {
         this.serverURL = serverURL;
     }
 
+    /** 将Header作为一个参数传入，而不是写死在这边实现解耦 */
     public void setHeader(HashMap<String, String> header) {
         this.mHeader = header;
     }
