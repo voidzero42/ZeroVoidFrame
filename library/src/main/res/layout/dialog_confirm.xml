@@ -11,7 +11,7 @@
         android:layout_height="43dp"
         android:gravity="center"
         android:text="djflajflaf"
-        android:textColor="@color/text_black"
+        android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -26,14 +26,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/line_gray" />
+        android:background="#E0E0E0" />
 
     <TextView
         android:id="@+id/tvBtnConfirm"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="@string/sure"
+        android:text="确认"
         android:textSize="16sp" />
 
 </LinearLayout>

@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#ffffff</color>
+
+    <!-- 灰色 -->
+    <color name="textGray">#c9c9c9</color>
+    <color name="textBlackGray">#8c8c8c</color>
+    <!-- 黑色 -->
+    <color name="textBlack">#444444</color>
+    <!-- 最浅的灰色 -->
+    <color name="lightGray">#aaaaaa</color>
+    <!-- 比较浅的灰色 -->
+    <color name="DarkGray">#535353</color>
+    <!-- 浅灰色底色 -->
+    <color name="backgroudGray">#eeeeee</color>
 </resources>

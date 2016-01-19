@@ -27,6 +27,10 @@ import com.zerovoid.lib.util.StringUtil;
 import com.zerovoid.lib.util.WindowHelper;
 import com.zerovoid.library.R;
 
+/**
+ * KJFrame中抽取出来的
+ * @author ZhangTao
+ */
 public class EmptyLayout extends LinearLayout implements
         View.OnClickListener {
 
@@ -35,7 +39,9 @@ public class EmptyLayout extends LinearLayout implements
     public static final int NODATA = 3; // 没有数据
     public static final int HIDE_LAYOUT = 4; // 隐藏
     private int mErrorState = NETWORK_LOADING;
-
+    private String strNoDataTip = "糟糕，取不到数据勒，点击重试下吧~";
+    private String strNoNetTip = "没有网络啊~";
+    private String strLoadingTip = "加载中…";
     private OnClickListener listener;
     private boolean clickEnable = true;
     private String strNoDataContent = "";
@@ -127,7 +133,7 @@ public class EmptyLayout extends LinearLayout implements
 
     public void setTvNoDataContent() {
         if (StringUtil.isBlank(strNoDataContent)) {
-            tv.setText("糟糕，取不到数据勒，点击重试下吧~");
+            tv.setText(strNoDataTip);
         } else {
             tv.setText(strNoDataContent);
         }
@@ -138,7 +144,7 @@ public class EmptyLayout extends LinearLayout implements
         switch (i) {
             case NETWORK_ERROR:
                 mErrorState = NETWORK_ERROR;
-                tv.setText("没有网络啊~");
+                tv.setText(strNoNetTip);
 //            if (SystemTool.isWiFi(getContext())) {
 //                img.setBackgroundResource(R.drawable.page_icon_network);
 //            } else {
@@ -152,7 +158,7 @@ public class EmptyLayout extends LinearLayout implements
                 mErrorState = NETWORK_LOADING;
                 progressWheel.setVisibility(View.VISIBLE);
                 img.setVisibility(View.GONE);
-//                tv.setText("加载中…");
+//                tv.setText(strLoadingTip);
                 clickEnable = false;
                 break;
             case NODATA:

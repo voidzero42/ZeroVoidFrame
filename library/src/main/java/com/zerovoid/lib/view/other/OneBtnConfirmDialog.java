@@ -14,7 +14,10 @@ import android.widget.TextView;
 import com.zerovoid.lib.util.StringUtil;
 import com.zerovoid.library.R;
 
-
+/**
+ * 只有一个按钮的仿IOS弹出框
+ * @version 160119
+ */
 public class OneBtnConfirmDialog extends Dialog {
 
     private Context context;
@@ -25,7 +28,6 @@ public class OneBtnConfirmDialog extends Dialog {
 
     public OneBtnConfirmDialog(Context context, String title, String message, String btnConfirm) {
         super(context, R.style.UIAlertViewStyle);
-
         this.context = context;
         this.message = message;
         this.btnConfirm = btnConfirm;
@@ -33,17 +35,16 @@ public class OneBtnConfirmDialog extends Dialog {
     }
 
     public interface ClickListenerInterface {
-        public void doConfirm();
+         void doConfirm();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        inite();
+        init();
     }
 
-    public void inite() {
+    public void init() {
         setCanceledOnTouchOutside(false);
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.dialog_confirm, null);
@@ -79,10 +80,7 @@ public class OneBtnConfirmDialog extends Dialog {
 
         @Override
         public void onClick(View v) {
-
             clickListenerInterface.doConfirm();
         }
     }
-
-    ;
 }
