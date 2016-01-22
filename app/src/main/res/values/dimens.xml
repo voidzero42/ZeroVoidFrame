@@ -28,4 +28,26 @@
     <dimen name="txt_small">14sp</dimen>
     <dimen name="txt_medium">18sp</dimen>
     <dimen name="txt_large">22sp</dimen>
+
+    <!--#########Orange字号大小start###########-->
+    <dimen name="text_mini">10dp</dimen>
+    <dimen name="text_small">12dp</dimen>
+    <dimen name="text_medium">15dp</dimen>
+    <dimen name="text_large">17dp</dimen>
+    <dimen name="text_xl">20dp</dimen>
+    <!--#########Orange字号大小end###########-->
+
+    <!--#########Orange边距体系start######### -->
+    <dimen name="item_height">48dp</dimen>
+    <!-- 标准间隔 -->
+    <dimen name="margin_space">10dp</dimen>
+    <!--标准边距-->
+    <dimen name="margin_side">14dp</dimen>
+    <!--双倍标准边距-->
+    <dimen name="margin_side_double">28dp</dimen>
+    <!--标准垂直距离-->
+    <dimen name="margin_vertical">15dp</dimen>
+    <!--按钮高度-->
+    <dimen name="btn_height">48dp</dimen>
+    <!--#########Orange边距体系end######### -->
 </resources>
