@@ -10,7 +10,9 @@ import java.sql.Time;
 /**
  * 倒计时的通用Handler
  * <p/>
- * Created by 绯若虚无 on 2016/1/5.
+ * Created by 绯若虚无 on 2016/1/5.Modify by zv on 160126
+ *
+ * @author zv
  */
 public class CountDownHandler extends Handler {
     private WeakReference<TextView> weakReference;
@@ -68,7 +70,7 @@ public class CountDownHandler extends Handler {
     }
 
     private void setTimeToTextView() {
-        //TODO 将来可能加入年月天时分秒
+        //TODO 加入年月天时分秒
         String second = String.valueOf(mSecond);
         if (!mIsOnlySecond) { //是否需要转化为时分秒
             second = TimeUtil.convertSecondToHour(second);
@@ -104,6 +106,10 @@ public class CountDownHandler extends Handler {
                 }
             }
         }
+    }
+
+    public boolean hasStop() {
+        return hasStop;
     }
 
 

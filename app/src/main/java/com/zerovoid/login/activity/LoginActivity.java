@@ -6,7 +6,11 @@ import android.os.Bundle;
 import com.zerovoid.lib.activity.BaseActivity;
 
 /**
- * Created by Administrator on 2016/1/11.
+ * 登录功能
+ * <p/>
+ * Created by zv on 2016/1/11.
+ *
+ * @author zv
  */
 public class LoginActivity extends BaseActivity {
 

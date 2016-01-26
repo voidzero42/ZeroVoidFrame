@@ -17,36 +17,27 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
-
-    <Button
-        android:id="@+id/btnScreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView11"
-        android:text="屏幕适配"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnScreen"
-        android:layout_marginTop="10dp"/>
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:text="目录"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/rvContent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/btnScreen"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_toRightOf="@+id/btnScreen"
+        android:layout_below="@+id/textView11"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:lines="1"
         android:text="·································································································"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"
+        android:layout_marginTop="10dp"/>
 </RelativeLayout>
