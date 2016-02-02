@@ -19,15 +19,32 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * 字符串操作工具包
+ * <p/>
+ * Create by zv on 160111,Modify by zv on 160127
  *
- * @version 20160111_绯若虚无
+ * @author 绯若虚无
  */
 public class StringUtil {
+
+    /**
+     * 校验列表的非空和防止数组越界
+     *
+     * @param list
+     * @param pos
+     * @return
+     */
+    public static boolean validateList(List list, int pos) {
+        if (list != null && pos >= 0 && pos < list.size()) {
+            return true;
+        }
+        return false;
+    }
 
     public static void setText(View view, String str) {
         if (!isBlank(str)) {
@@ -462,7 +479,8 @@ public class StringUtil {
     public static int compareVersion(String version1, String version2) {
         return compare(version1, 0, version2, 0);
     }
-    public static int compare(String version1,int st1, String version2,int st2) {
+
+    public static int compare(String version1, int st1, String version2, int st2) {
         int ssa = 1;
         int ssb = 1;
         if (st1 == version1.length() || st1 == version1.length() + 1) {
@@ -478,7 +496,7 @@ public class StringUtil {
             }
         }
         int i = st1;
-        int a=0;
+        int a = 0;
         if (ssa != 0) {
             String s1 = "";
             for (; i < version1.length(); i++) {
@@ -490,7 +508,7 @@ public class StringUtil {
             a = Integer.valueOf(s1);
         }
         int j = st2;
-        int b=0;
+        int b = 0;
         if (ssb != 0) {
             String s2 = "";
             for (; j < version2.length(); j++) {
@@ -507,7 +525,7 @@ public class StringUtil {
             if (a < b)
                 return -1;
             else {
-                if(ssa==0||ssb==0)return 0;
+                if (ssa == 0 || ssb == 0) return 0;
                 else return compare(version1, i + 1, version2, j + 1);
             }
         }
