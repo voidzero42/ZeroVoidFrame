@@ -12,13 +12,21 @@ import org.json.JSONObject;
 
 /**
  * 通用HTTP处理逻辑
- * Created by 绯若虚无 on 2015/9/17.
+ * <p/>
+ * Created by 绯若虚无 on 2015/9/17.Modify by zv on 160203
+ *
+ * @author 绯若虚无
  */
 public class OrangeErrorHandler {
 
     private static OrangeErrorHandler biz;
     private Context mContext;
     private boolean isDebug;
+
+    /** 退出APP */
+    private IExitApp iExitApp;
+    /** 登录类 */
+    private Class mLoginClass;
 
     private OrangeErrorHandler() {
 
@@ -34,11 +42,17 @@ public class OrangeErrorHandler {
         return biz;
     }
 
-    private void enableDebug() {
+    /** 开启DEBUG模式 */
+    public void enableDebug() {
         isDebug = true;
     }
 
-    private void setDebug(boolean isDebug) {
+    /**
+     * 设置DEBUG模式
+     *
+     * @param isDebug true=开启Debug
+     */
+    public void setDebug(boolean isDebug) {
         this.isDebug = isDebug;
     }
 
@@ -181,7 +195,7 @@ public class OrangeErrorHandler {
     /**
      * 获取errCode的头两位，用于判断是否是98开头的错误码
      *
-     * @param errCode
+     * @param errCode 错误码
      */
     private String getHeadCode(String errCode) {
         if (errCode != null && errCode.length() > 2) {
@@ -190,28 +204,38 @@ public class OrangeErrorHandler {
         return errCode;
     }
 
+    /** 一般APP，都有token ，过期的时候要跳转到登录界面 */
     private void jumpToLogin() {
         ToastHelper.getInstance()._toast("登录信息过期了...");
-        if (mClass != null && ie != null) {
+        if (mLoginClass != null && iExitApp != null) {
         /*这个跳转到登录的类，是会改变的*/
-            ie.exit();
+            iExitApp.exit();
             /*解耦，将SP踢出去，化作接口传入*/
-            ie.clearToken();
-            Intent intent = new Intent(mContext, mClass);
+            iExitApp.clearToken();
+            iExitApp.clearCache();
+            Intent intent = new Intent(mContext, mLoginClass);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(intent);
         }
     }
 
+    /**
+     * 解耦，将退出整个APP整个功能写成接口，而不是直接传入退出APP的类
+     *
+     * @param ie 退出APP的接口
+     */
     public void setExitApp(IExitApp ie) {
-        this.ie = ie;
+        this.iExitApp = ie;
     }
 
+    /**
+     * 解耦，将登录界面在初始化的时候传入，而不是直接写死在此类中.
+     *
+     * @param clazz 登录Activity
+     */
     public void setLoginClass(Class clazz) {
-        this.mClass = clazz;
+        this.mLoginClass = clazz;
     }
 
-    IExitApp ie;
-    Class mClass;
 
 }

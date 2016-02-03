@@ -9,6 +9,8 @@ import com.zerovoid.application.InitApplication;
 import com.zerovoid.lib.util.ToastHelper;
 
 /**
+ * 跳转Activity的管理类
+ * <p/>
  * Created by 绯若虚无 on 2016/1/12.
  */
 public class JumpUtil {

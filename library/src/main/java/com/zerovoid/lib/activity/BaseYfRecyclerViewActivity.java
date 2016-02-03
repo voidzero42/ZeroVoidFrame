@@ -9,14 +9,18 @@ import com.zerovoid.lib.view.yfRecyclerView.YfListInterface;
 
 
 /**
- * Created by YangWei
- * on 2015/12/22.
+ * YfRecyclerView（某下拉刷新组件的基类）
+ * <p/>
+ * Created by YangWei on 2015/12/22.
+ *
+ * @author zv
  */
-public abstract class BaseYfRecyclerViewActivity extends BaseActivity implements YfListInterface.YfLoadMoreListener{
+public abstract class BaseYfRecyclerViewActivity extends BaseActivity implements YfListInterface.YfLoadMoreListener {
     protected boolean mLoadingLock = false;
-    protected int pageSize =1;
+    protected int pageSize = 1;
     protected int pageNo = 8;
     protected boolean isLoadMore = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

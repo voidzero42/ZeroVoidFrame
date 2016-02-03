@@ -1,4 +1,4 @@
-package com.zerovoid.main.activity;
+package com.zerovoid.login.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,13 +7,15 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.zerovoid.lib.activity.BaseActivity;
-import com.zerovoid.login.activity.LoginActivity;
 import com.zerovoid.zerovoidframe.R;
 
 /**
- * Created by Administrator on 2016/1/12.
+ * 闪屏
+ * Created by zv on 2016/1/12.
+ *
+ * @author zv
  */
-public class SplashActivity extends BaseActivity{
+public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
