@@ -17,9 +17,9 @@ import java.util.List;
  * Created by yefeng on 8/5/15.
  * github:yefengfreedom
  */
-public abstract class RecycleViewAdapter<T> extends YfListAdapter<T> {
+public abstract class YfRecyclerViewAdapter<T> extends YfListAdapter<T> {
 
-    public RecycleViewAdapter(List<T> data) {
+    public YfRecyclerViewAdapter(List<T> data) {
         super(data);
     }
 

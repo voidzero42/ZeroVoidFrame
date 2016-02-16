@@ -1,52 +1,37 @@
-package com.zerovoid.lib.activity;
+package com.zerovoid.common.activity;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 
+import com.zerovoid.lib.activity.BaseActivity;
 import com.zerovoid.lib.view.yfRecyclerView.YfRecyclerViewAdapter;
 import com.zerovoid.lib.view.yfRecyclerView.YfListInterface;
 
-
 /**
- * YfRecyclerView（某下拉刷新组件的基类）
- * <p/>
- * Created by YangWei on 2015/12/22.
- *
- * @author zv
+ * Created by YangWeion 2015/12/22.
  */
-public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implements YfListInterface.YfLoadMoreListener {
+public abstract class BaseYfRecyclerViewActivity extends BaseActivity implements YfListInterface.YfLoadMoreListener {
     protected boolean mLoadingLock = false;
-    protected int pageSize = 1;
-    protected int pageNo = 8;
+    protected int pageSize = 8;
+    protected int pageNo = 1;
     protected boolean isLoadMore = false;
-    /** 滑动-加载更多模式的请求 */
-    protected final int REQ_MODE_LOAD_MORE = 0;
-    /** 滑动-下拉刷新模式的请求 */
-    protected final int REQ_MODE_REFRESH = 1;
-    /** 初始化的请求 */
-    protected final int REQ_MODE_INIT = 2;
-    /** 当前的请求模式 */
-    protected int currentReqMode = REQ_MODE_INIT;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initSwipeLayout(getSwipeRefreshLayout());
     }
 
-    /** 获得子类中的mSwipeRefreshLayout的实例，父类中需要用到此实例。如果分类写mSwipeRefreshLayout，子类实例化XXX，可读性不高 */
     protected abstract SwipeRefreshLayout getSwipeRefreshLayout();
 
     /**
-     * 初始化
+     * 抽出初始化SwipeReFreshLayout的方法
      *
      * @param swipeRefreshLayout
      */
     protected void initSwipeLayout(final SwipeRefreshLayout swipeRefreshLayout) {
         if (swipeRefreshLayout == null) {
-            throw new NullPointerException("SwipeRefreshLayout为空，请检查，1、如果重写了onCreate(Bundle)，则必须调用super.onCreate(Bundle)方法，2、或者调用initSwipeLayout()");
+            throw new NullPointerException("SwipeRefreshLayout为空，请检查，如果重写了onCreateView，则必须调用super.onCreateView()方法或者调用initSwipeLayout()");
         }
         swipeRefreshLayout.setColorSchemeResources(
                 android.R.color.holo_blue_light,
@@ -67,25 +52,20 @@ public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implem
             if (getSwipeRefreshLayout().isRefreshing()) {
                 getSwipeRefreshLayout().setRefreshing(false);
             }
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    getSwipeRefreshLayout().setRefreshing(true);
-                }
-            }, 3000);
+            getSwipeRefreshLayout().setRefreshing(true);
         }
     }
 
     protected void hideRefreshing() {
         if (getSwipeRefreshLayout() != null) {
             if (getSwipeRefreshLayout().isRefreshing()) {
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        getSwipeRefreshLayout().setRefreshing(false);
-                    }
-                }, 3000);
+                getSwipeRefreshLayout().setRefreshing(false);
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                    }
+//                }, 3000);
             }
         }
     }
@@ -96,10 +76,9 @@ public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implem
 
     //onLoadMore();
 
-    /** 获取RecyclerViewAdapter */
     protected abstract YfRecyclerViewAdapter getAdapter();
 
-    final String strLoading = "正在拼命加载中...";
+    final String strLoading = "橙子正在努力地加载...";
     private boolean isFirstEnableAutoLoadMore = true;
 
     @Override

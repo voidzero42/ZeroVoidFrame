@@ -6,13 +6,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zerovoid.lib.view.yfRecyclerView.RecycleViewAdapter;
+import com.zerovoid.lib.view.yfRecyclerView.YfListInterface;
+import com.zerovoid.lib.view.yfRecyclerView.YfRecyclerViewAdapter;
 
 
-public abstract class BaseYfRecyclerViewFragment extends BaseFragment {
+public abstract class BaseYfRecyclerViewFragment extends TitleBarFragment implements YfListInterface.YfLoadMoreListener {
     protected boolean mLoadingLock = false;
     protected int pageSize = 2;
-    protected int pageNo =8;
+    protected int pageNo = 8;
+    public static boolean isLoadMore = false;
+    /** 滑动-加载更多模式的请求 */
+    protected final int REQ_MODE_LOAD_MORE = 0;
+    /** 滑动-下拉刷新模式的请求 */
+    protected final int REQ_MODE_REFRESH = 1;
+    /** 初始化的请求 */
+    protected final int REQ_MODE_INIT = 2;
+    /** 当前的请求模式 */
+    protected int currentReqMode = REQ_MODE_INIT;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,29 +51,12 @@ public abstract class BaseYfRecyclerViewFragment extends BaseFragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                swipeRefreshLayout.setRefreshing(false);
+                isLoadMore = false;
+                mLoadingLock = false;
+                pageNo = 1;
                 refresh();
             }
         });
-    }
-
-    public void loadMore(RecycleViewAdapter mAdapter, int mTotalDataCount) {
-        if (mLoadingLock) {
-            return;
-        }
-        if (mAdapter.getData().size() < mTotalDataCount && mAdapter.getData().size() > 0) {
-            // has more
-            mLoadingLock = true;
-            if (!mAdapter.getFooters().contains("loading...")) {
-                mAdapter.addFooter("loading...");
-            }
-            load();
-        } else {
-            // no more
-            if (mAdapter.getFooters().contains("loading...")) {
-                mAdapter.removeFooter("loading...");
-            }
-        }
     }
 
     protected void showRefreshing() {
@@ -79,11 +72,52 @@ public abstract class BaseYfRecyclerViewFragment extends BaseFragment {
         if (getSwipeRefreshLayout() != null) {
             if (getSwipeRefreshLayout().isRefreshing()) {
                 getSwipeRefreshLayout().setRefreshing(false);
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                    }
+//                }, 3000);
             }
         }
     }
 
     protected abstract void refresh();
 
-    protected abstract void load();
+    protected abstract void loadMoreData();
+
+    protected abstract YfRecyclerViewAdapter getAdapter();
+
+    final String strLoading = "橙子正在努力地加载...";
+    private boolean isFirstEnableAutoLoadMore = true;
+
+    @Override
+    public void loadMore() {
+        YfRecyclerViewAdapter adapter = getAdapter();
+        if (adapter == null) {
+            throw new NullPointerException("getAdapter()返回的Adapter不能为空...");
+        }
+        if (mLoadingLock) {
+            return;
+        }
+        if (adapter.getData().size() < adapter.getTotalNum() && adapter.getData().size() > 0) {
+            // has more
+            if (!adapter.getFooters().contains(strLoading)) {
+                adapter.addFooter(strLoading);
+            }
+            if (!isFirstEnableAutoLoadMore) {
+                mLoadingLock = true;
+                pageNo++;
+                isLoadMore = true;
+                loadMoreData();
+            } else {
+                isFirstEnableAutoLoadMore = false;
+            }
+        } else {
+            // no more
+            if (adapter.getFooters().contains(strLoading)) {
+                adapter.removeFooter(strLoading);
+            }
+        }
+    }
 }

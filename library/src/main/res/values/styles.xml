@@ -1,4 +1,7 @@
 <resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
     <!-- 自定义loading dialog -->
     <style name="anim_dialog" parent="android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
