@@ -5,8 +5,11 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 
+import com.zerovoid.lib.view.yfRecyclerView.YfListMode;
 import com.zerovoid.lib.view.yfRecyclerView.YfRecyclerViewAdapter;
 import com.zerovoid.lib.view.yfRecyclerView.YfListInterface;
+
+import java.util.List;
 
 
 /**
@@ -16,10 +19,10 @@ import com.zerovoid.lib.view.yfRecyclerView.YfListInterface;
  *
  * @author zv
  */
-public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implements YfListInterface.YfLoadMoreListener {
+public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implements YfListInterface.YfLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
     protected boolean mLoadingLock = false;
-    protected int pageSize = 1;
-    protected int pageNo = 8;
+    protected int pageSize = 8;
+    protected int pageNo = 1;
     protected boolean isLoadMore = false;
     /** 滑动-加载更多模式的请求 */
     protected final int REQ_MODE_LOAD_MORE = 0;
@@ -53,13 +56,25 @@ public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implem
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipeRefreshLayout.setRefreshing(false);
-                refresh();
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(this);
+    }
+
+    @Override
+    public void onRefresh() {
+        getSwipeRefreshLayout().setRefreshing(false);
+        refresh();
+        pageNo = 1;
+        request();
+        changeMode(REQ_MODE_REFRESH);
+    }
+
+    /**
+     * 原本也是写在子类中，但是这种东西最好还是父类处理掉，免得遗漏
+     *
+     * @param mode
+     */
+    private void changeMode(int mode) {
+        currentReqMode = mode;
     }
 
     protected void showRefreshing() {
@@ -90,11 +105,13 @@ public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implem
         }
     }
 
+    protected abstract void request();
+
     protected abstract void refresh();
 
     protected abstract void loadMoreData();
 
-    //onLoadMore();
+    protected abstract void setAdapter();
 
     /** 获取RecyclerViewAdapter */
     protected abstract YfRecyclerViewAdapter getAdapter();
@@ -118,9 +135,11 @@ public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implem
             }
             if (!isFirstEnableAutoLoadMore) {
                 mLoadingLock = true;
-                pageNo++;
                 isLoadMore = true;
                 loadMoreData();
+                pageNo++;
+                request();
+                changeMode(REQ_MODE_LOAD_MORE);
             } else {
                 isFirstEnableAutoLoadMore = false;
             }
@@ -131,4 +150,54 @@ public abstract class BaseYfRecyclerViewActivity extends TitleBarActivity implem
             }
         }
     }
+
+    /** 显示进度条（初始化进度条[弹出框或YfAdapter的中心转]、SWL下拉刷新进度条、SWL加载更多进度条） */
+    protected void showProgress() {
+        YfRecyclerViewAdapter adapter = getAdapter();
+        /*如果有数据，则显示SWL的进度条或者悬浮进度条，无数据则显示中部*/
+        if (hasData()) {
+            /*Refresh已经会转了，不需要再show*/
+            if (currentReqMode == REQ_MODE_LOAD_MORE) {
+                showRefreshing();/*浮刷*/
+            }
+        } else {/*无数据，不可能有加载更多*/
+            /*下拉刷新*/
+            if (adapter.mMode == YfListMode.MODE_LOADING) {/*如果上一次还没请求完，则*/
+                hideRefreshing();
+            }
+            /*新进*/
+            adapter.changeMode(YfListMode.MODE_LOADING);/*全刷*/
+        }
+    }
+
+    /** 隐藏进度条 */
+    protected void hideProgress() {
+        hideRefreshing();
+    }
+
+    /** 数据集合中是否有数据，作为进度条展示形态的依据 */
+    private boolean hasData() {
+        YfRecyclerViewAdapter adapter = getAdapter();
+        if (adapter != null && adapter.getData() != null && adapter.getData().size() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    //如果界面内，有切换请求，在发起新请求之前，需要调用resetProgress()
+    protected void resetProgress() {
+        currentReqMode = REQ_MODE_INIT;
+        getAdapter().setData(null);/*切换完，清空原来的数据*/
+        hideProgress();/*切换，所以需要关闭之前的进度条*/
+    }
+
+    protected void setData(List data) {
+        if (!isLoadMore) {
+            getAdapter().setData(data);
+        } else {
+            getAdapter().addData(data);
+        }
+    }
+
+
 }
