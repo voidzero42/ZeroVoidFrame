@@ -1,6 +1,5 @@
 package com.zerovoid.lib.view.other;
 
-
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -14,45 +13,50 @@ import android.widget.TextView;
 import com.zerovoid.lib.util.StringUtil;
 import com.zerovoid.library.R;
 
-/**
- * 只有一个按钮的仿IOS弹出框
- * @version 160119
- */
-public class OneBtnConfirmDialog extends Dialog {
+
+public class IosDialog extends Dialog {
 
     private Context context;
     private String title;
     private String message;
-    private String btnConfirm;
+    private String buttonLeftText;
+    private String buttonRightText;
     private ClickListenerInterface clickListenerInterface;
 
-    public OneBtnConfirmDialog(Context context, String title, String message, String btnConfirm) {
+    public IosDialog(Context context, String title, String message,
+                     String buttonLeftText, String buttonRightText) {
         super(context, R.style.UIAlertViewStyle);
+
         this.context = context;
-        this.message = message;
-        this.btnConfirm = btnConfirm;
         this.title = title;
+        this.message = message;
+        this.buttonLeftText = buttonLeftText;
+        this.buttonRightText = buttonRightText;
     }
 
     public interface ClickListenerInterface {
-         void doConfirm();
+        void doLeft();
+
+        void doRight();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        init();
+        inite();
     }
 
-    public void init() {
-        setCanceledOnTouchOutside(false);
+    public void inite() {
+        this.setCanceledOnTouchOutside(false);
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dialog_confirm, null);
+        View view = inflater.inflate(R.layout.dialog_layout1, null);
         setContentView(view);
 
         TextView tvMessage = (TextView) view.findViewById(R.id.tvMessage);
+        TextView tvLeft = (TextView) view.findViewById(R.id.tvBtnLeft);
+        TextView tvRight = (TextView) view.findViewById(R.id.tvBtnRight);
         TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-        TextView tvBtnConfirm = (TextView) view.findViewById(R.id.tvBtnConfirm);
 
         if (StringUtil.isBlank(title)) {
             tvTitle.setVisibility(View.GONE);
@@ -60,9 +64,11 @@ public class OneBtnConfirmDialog extends Dialog {
             tvTitle.setText(title);
         }
         tvMessage.setText(message);
-        tvBtnConfirm.setText(btnConfirm);
+        tvLeft.setText(buttonLeftText);
+        tvRight.setText(buttonRightText);
 
-        tvBtnConfirm.setOnClickListener(new clickListener());
+        tvLeft.setOnClickListener(new clickListener());
+        tvRight.setOnClickListener(new clickListener());
 
         Window dialogWindow = getWindow();
         WindowManager.LayoutParams lp = dialogWindow.getAttributes();
@@ -80,7 +86,13 @@ public class OneBtnConfirmDialog extends Dialog {
 
         @Override
         public void onClick(View v) {
-            clickListenerInterface.doConfirm();
+
+            int id = v.getId();
+            if (id == R.id.tvBtnLeft) {
+                clickListenerInterface.doLeft();
+            } else if (id == R.id.tvBtnRight) {
+                clickListenerInterface.doRight();
+            }
         }
     }
 }

@@ -6,7 +6,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-
+/**
+ * 带进度条的WebView
+ * Create by
+ *
+ * @author zv
+ */
 public class ProgressWebView extends WebView {
 
     private ProgressBar progressbar;
