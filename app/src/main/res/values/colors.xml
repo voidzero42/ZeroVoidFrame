@@ -23,5 +23,5 @@
     <!-- 字体颜色，浅灰色；次级提示文字 ； -->
     <color name="text_grey">#aaaaaa</color>
 
-
+    <item name="btnBluePressed" type="drawable">#ff98CCDE</item>
 </resources>

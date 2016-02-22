@@ -35,6 +35,11 @@
         <activity
             android:name="com.zerovoid.screen.ScreenAdapterActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.zerovoid.photo.PhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SelectDialogStyleCenter"/>
     </application>
 
 </manifest>

@@ -132,7 +132,14 @@ public class IntentHelper<T> {
         bundleWithExtra(context, s, bundle, null, -1, requestCode);
     }
 
+//TODO 这里涉及到外部的ANIM动画资源
 
+    /**
+     * 带动画的Activity跳转，
+     *
+     * @param context
+     * @param isFinishActivity 是否结束当前Activity
+     */
     public void jumpActivityAnimation(Context context,
                                       boolean isFinishActivity) {
         if (!isFinishActivity) {
