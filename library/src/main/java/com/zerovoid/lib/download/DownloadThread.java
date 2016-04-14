@@ -8,6 +8,7 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+@Deprecated
 public class DownloadThread extends Thread {
 	private static final String TAG = "DownloadThread";
 	private File saveFile;
@@ -54,9 +55,10 @@ public class DownloadThread extends Thread {
 				while ((offset = inStream.read(buffer, 0, 1024)) != -1) {
 					threadfile.write(buffer, 0, offset);
 					downLength += offset;
-					downloader.update(this.threadId, downLength);
-					downloader.saveLogFile();
-					downloader.append(offset);
+					//TODO 我草你妈
+//					downloader.update(this.threadId, downLength);
+//					downloader.saveLogFile();
+//					downloader.append(offset);
 				}
 				threadfile.close();
 				inStream.close();			

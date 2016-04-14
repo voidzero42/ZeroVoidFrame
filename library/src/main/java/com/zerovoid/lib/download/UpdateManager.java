@@ -28,6 +28,7 @@ import java.util.HashMap;
 /**
  * APK更新
  */
+@Deprecated
 public class UpdateManager {
     private Context mContext;
 
@@ -172,22 +173,22 @@ public class UpdateManager {
                     }
                 }
                 //FIXME 一般使用系统的HTTP工具的文件下载功能，而不使用第三方的
-                FileDownloader loader = new FileDownloader(mContext, path, localDir, 3);
-                int length = loader.getFileSize();
-                mProgress.setMax(length);
-                try {
-                    loader.download(new DownloadProgressListener() {
-                        @Override
-                        public void onDownloadSize(int size) {//异步更新UI
-                            Message msg = new Message();
-                            msg.what = UPDATE_PROGRESS;
-                            msg.getData().putInt("size", size);
-                            mHandler.sendMessage(msg);
-                        }
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+//                FileDownloader loader = new FileDownloader(mContext, path, localDir, 3);
+//                int length = loader.getFileSize();
+//                mProgress.setMax(length);
+//                try {
+//                    loader.download(new DownloadProgressListener() {
+//                        @Override
+//                        public void onDownloadSize(int size) {//异步更新UI
+//                            Message msg = new Message();
+//                            msg.what = UPDATE_PROGRESS;
+//                            msg.getData().putInt("size", size);
+//                            mHandler.sendMessage(msg);
+//                        }
+//                    });
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
             }
         }).start();
     }
@@ -196,15 +197,15 @@ public class UpdateManager {
      * 安装apk
      */
     private void installApk() {
-        File apkFile = new File(savePath + FileDownloader.filename);
-        if (!apkFile.exists()) {
-            return;
-        }
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.setDataAndType(Uri.parse("file://" + apkFile.toString()),
-                "application/vnd.android.package-archive");
-        mContext.startActivity(i);
+//        File apkFile = new File(savePath + FileDownloader.filename);
+//        if (!apkFile.exists()) {
+//            return;
+//        }
+//        Intent i = new Intent(Intent.ACTION_VIEW);
+//        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        i.setDataAndType(Uri.parse("file://" + apkFile.toString()),
+//                "application/vnd.android.package-archive");
+//        mContext.startActivity(i);
     }
 
     // 安装新的APK之后，清空本地数据存储

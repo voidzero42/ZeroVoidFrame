@@ -27,6 +27,12 @@ import java.util.Map;
 
 /**
  * HTTP请求工具类
+ *
+ * https://github.com/joefei
+ *
+ * Create by zv on 16.Modify by zv on 160329.
+ * @author zv
+ * @since v1.0.0
  */
 public class VolleyHttpUtil {
     protected static final String TAG = VolleyHttpUtil.class.getSimpleName();

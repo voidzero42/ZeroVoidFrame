@@ -9,14 +9,16 @@ import java.sql.Time;
 
 /**
  * 倒计时的通用Handler
+ *
+ * https://github.com/joefei
  * <p/>
- * Created by 绯若虚无 on 2016/1/5.Modify by zv on 160126
+ * Created by 绯若虚无 on 2016/1/5.Modify by zv on 160330
  *
  * @author zv
  */
 public class CountDownHandler extends Handler {
     private WeakReference<TextView> weakReference;
-    private TextView tv;
+    private TextView mTv;
     /** 倒计时总秒数 */
     private int mSecond = 0;
     /** 是否只显示秒数，不转化为时分秒 */
@@ -25,6 +27,7 @@ public class CountDownHandler extends Handler {
     private int interval = 1000;
     private int mWhat;
     private boolean hasStop = false;
+    private boolean mIsUseCustomCountDownInfo;
 
     public CountDownHandler() {
     }
@@ -32,6 +35,10 @@ public class CountDownHandler extends Handler {
     public CountDownHandler(TextView tv, int what) {
         weakReference = new WeakReference<>(tv);
         mWhat = what;
+    }
+
+    public void setTextView(TextView newTv) {
+        weakReference = new WeakReference<>(newTv);
     }
 
     public void startTimer(int second) {
@@ -65,6 +72,10 @@ public class CountDownHandler extends Handler {
         setTimeToTextView();
     }
 
+    public void isUseCustomCountDownInfo(boolean isUseCustomCountDownInfo) {
+        this.mIsUseCustomCountDownInfo = isUseCustomCountDownInfo;
+    }
+
     public void isOnlySecond(boolean isOnlySecond) {
         this.mIsOnlySecond = isOnlySecond;
     }
@@ -73,21 +84,40 @@ public class CountDownHandler extends Handler {
         //TODO 加入年月天时分秒
         String second = String.valueOf(mSecond);
         if (!mIsOnlySecond) { //是否需要转化为时分秒
-            second = TimeUtil.convertSecondToHour(second);
+            second = convertSecondToHour(second);
         }
-        if (tv != null) {
-            tv.setText(second);
+        if (mIsUseCustomCountDownInfo) {
+            if (mListener != null) {
+                mListener.onCountDown(second);
+            }
+        } else {
+            if (mTv != null) {
+                mTv.setText(second);
+            }
         }
-        if (mListener != null) {
-            mListener.onCountDown(second);
+    }
+
+    /** 将秒数转为小时 */
+    private String convertSecondToHour(String second) {
+        String result = "";
+        int secondInt;
+        try {
+            secondInt = Integer.parseInt(second);
+            int h = secondInt / 3600;
+            int m = (secondInt - h * 3600) / 60;
+            int s = secondInt % 60;
+            result = String.format("%02d:%02d:%02d", h, m, s);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
+        return result;
     }
 
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
         if (msg.what == mWhat) {
-            tv = weakReference.get();
+            mTv = weakReference.get();
             if (mSecond > 0) {
                 mSecond--;
                 if (!hasStop) {

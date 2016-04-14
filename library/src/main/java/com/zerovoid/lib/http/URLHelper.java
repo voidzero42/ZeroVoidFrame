@@ -5,7 +5,8 @@ import com.zerovoid.lib.util.StringUtil;
 
 /**
  * URL帮助类
- * Created by 绯若虚无 on 2015/12/16.
+ * https://github.com/joefei
+ * Created by zv on 2015/12/16.
  */
 public class URLHelper {
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/red"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        </LinearLayout>
+
+        <cc.zerovoid.view.drawLine.ZvLine
+            android:id="@+id/view2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            />
+
+        <cc.zerovoid.view.drawLine.ZvLine
+            android:id="@+id/view3"
+            android:layout_width="5px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="抵用券"
+            android:textSize="50sp"/>
+    </RelativeLayout>
+</LinearLayout>

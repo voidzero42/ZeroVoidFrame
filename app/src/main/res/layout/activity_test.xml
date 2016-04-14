@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/ic_red_envelope">
 
-        <com.zerovoid.test.TestSurfaceView
+        <cc.zerovoid.test.TestSurfaceView
            android:id="@+id/sur"
             android:layout_width="350dp"
             android:layout_height="450dp"

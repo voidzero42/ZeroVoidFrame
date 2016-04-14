@@ -5,14 +5,14 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name="com.zerovoid.application.InitApplication"
+        android:name="cc.zerovoid.application.InitApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.zerovoid.main.activity.MainActivity"
+            android:name="cc.zerovoid.main.activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,23 +21,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.zerovoid.login.activity.VerifyCodeActivity"
+            android:name="cc.zerovoid.login.activity.VerifyCodeActivity"
             android:screenOrientation="portrait"
             />
 
         <activity
-            android:name="com.zerovoid.test.TestActivity"
+            android:name="cc.zerovoid.test.TestActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.zerovoid.house.activity.HouseListActivityWithLv"
+            android:name="cc.zerovoid.house.activity.HouseListActivityWithLv"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.zerovoid.screen.ScreenAdapterActivity"
+            android:name="cc.zerovoid.screen.ScreenAdapterActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.zerovoid.photo.PhotoActivity"
+            android:name="cc.zerovoid.photo.PhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SelectDialogStyleCenter"/>
+
+        <activity
+            android:name="cc.zerovoid.game.gobang.GoBangActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SelectDialogStyleCenter"/>
     </application>

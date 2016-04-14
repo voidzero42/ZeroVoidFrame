@@ -1,11 +1,8 @@
 package com.zerovoid.lib.util;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -85,45 +82,6 @@ public class StrHelper {
         return hexString.toString();
     }
 
-    /**
-     * 将请求参数是name1=value1&name2=value2的形式的字符串转为键值对
-     *
-     *
-     * @param paramsString
-     *            {@link String} name1=value1&name2=value2形式的请求参数
-     * @return
-     */
-    public static List<NameValuePair> toNameValuePairList(String paramsString) {
-        List<NameValuePair> NameValuePairList = new ArrayList<NameValuePair>();
-        if (paramsString != null && !paramsString.equals("")) {
-            String[] paramsArray = paramsString.split("\\&");
-            for (String param : paramsArray) {
-                String[] keyValue = param.split("\\=");
-                NameValuePairList.add(new BasicNameValuePair(keyValue[0],
-                        keyValue.length > 1 ? keyValue[1] : ""));
-            }
-        }
-        return NameValuePairList;
-    }
-
-    /**
-     * 将键值对转化为name1=value1&name2=value2形式的字符串
-     *
-     * @param params
-     *            {@link List} 键值对
-     * @return
-     */
-    public static String fromNameValuePairList(List<NameValuePair> params) {
-        String result = "";
-
-        for (NameValuePair nameValuePair : params) {
-            result += nameValuePair.getName() + "=" + nameValuePair.getValue()
-                    + "&";
-        }
-        if (result.endsWith("&"))
-            result = result.substring(0, result.length() - 1);
-        return result;
-    }
 
     /**
      * 将HTML转义，转换为正确符号
