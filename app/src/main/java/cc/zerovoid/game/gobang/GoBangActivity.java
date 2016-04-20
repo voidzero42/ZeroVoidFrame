@@ -21,16 +21,20 @@ public class GoBangActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getScreen();//这里这么写，怎么你不去死，TMD对于另一个类那么重要的参数，就这样写？
-        setContentView(getView());
+        setContentView(getView(1));
     }
 
-    private View getView() {
-        View view = null;
-//        gameView = new GameView(this);
-//        view=gameView;
-        view=new ZvLine(this);
+    private View getView(int i) {
+
+        View view;
+        if (i == 0) {
+            view = new ZvLine(this);
+        } else {
+            view = new GameView(this);
+        }
         return view;
     }
+
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
