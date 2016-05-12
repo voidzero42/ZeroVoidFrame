@@ -18,3 +18,13 @@
 class InitApplication extends Application implements IExitApp
 
 
+【2016年5月12日 星期四】
+爬虫
+
+中国地震台网——首页  http://www.ceic.ac.cn/
+
+贴吧
+
+
+
+
