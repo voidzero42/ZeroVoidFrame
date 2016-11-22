@@ -7,14 +7,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import cc.zerovoid.main.adapter.RvAdapter;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.reflect.TypeToken;
 import com.zerovoid.zerovoidframe.R;
 
+
+import org.json.JSONArray;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,9 +48,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        test();
+        testJson();
         initSupportDesign();
         initRecycleView();
+    }
+
+    private void testJson() {
+        ArrayList<HashMap<String, String>> list = new ArrayList<>();
+        HashMap<String, String> map = new HashMap<>();
+        map.put("token1", "11111111");
+        map.put("token2", "222");
+        map.put("token3", "333");
+        map.put("token4", "44");
+        map.put("token5", "15551");
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<HashMap<String, String>>>() {
+        }.getType();
+        gson.toJson(list);
+        Log.e(MainActivity.class.getSimpleName(), gson.toString());
     }
 
     private void initSupportDesign() {
@@ -59,12 +85,6 @@ public class MainActivity extends AppCompatActivity {
     private void initRecycleView() {
         rvContent.setLayoutManager(new GridLayoutManager(this, 2));
         rvContent.setAdapter(new RvAdapter(DataHelper.getData(), this));
-    }
-
-
-
-    private void test() {
-
     }
 
     @Override
