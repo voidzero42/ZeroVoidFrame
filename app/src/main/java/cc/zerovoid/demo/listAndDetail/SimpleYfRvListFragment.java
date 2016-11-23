@@ -22,8 +22,8 @@ public class SimpleYfRvListFragment extends BaseYfRecyclerViewFragment {
 
     @Bind(R.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
-    @Bind(R.id.recyclerView)
-    YfListRecyclerView mRecyclerView;
+//    @Bind(R.id.recyclerView)
+//    YfListRecyclerView mRecyclerView;
     SimpleYfRvAdapter adapter;
 
     @Override
@@ -31,7 +31,7 @@ public class SimpleYfRvListFragment extends BaseYfRecyclerViewFragment {
         View view = inflater.inflate(R.layout.layout_recycleview, null);
         ButterKnife.bind(this, view);
         setAdapter();
-        mRecyclerView.enableAutoLoadMore(SimpleYfRvListFragment.this);
+//        mRecyclerView.enableAutoLoadMore(SimpleYfRvListFragment.this);
         return view;
     }
 

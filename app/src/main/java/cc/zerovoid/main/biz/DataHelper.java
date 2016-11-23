@@ -1,7 +1,8 @@
-package cc.zerovoid.main.activity;
+package cc.zerovoid.main.biz;
 
 import cc.zerovoid.game.gobang.GoBangActivity;
 import cc.zerovoid.login.activity.VerifyCodeActivity;
+import cc.zerovoid.main.activity.CommonFragmentActivity;
 import cc.zerovoid.screen.ScreenAdapterActivity;
 import cc.zerovoid.test.TestActivity;
 
@@ -19,7 +20,8 @@ public class DataHelper {
         data.add(getMap("1.屏幕适配器", ScreenAdapterActivity.class));
         data.add(getMap("2.验证码功能demo", VerifyCodeActivity.class));
         data.add(getMap("3.Test", TestActivity.class));
-        data.add(getMap("4.五子棋",GoBangActivity.class));
+        data.add(getMap("4.五子棋", GoBangActivity.class));
+        data.add(getMap("5.Fragment", CommonFragmentActivity.class));
         return data;
     }
 

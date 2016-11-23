@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name="cc.zerovoid.main.activity.CommonFragmentActivity"/>
+
         <activity
             android:name="cc.zerovoid.login.activity.VerifyCodeActivity"
             android:screenOrientation="portrait"

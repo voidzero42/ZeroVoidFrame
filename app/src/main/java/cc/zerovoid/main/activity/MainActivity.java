@@ -15,20 +15,17 @@ import android.view.MenuItem;
 import cc.zerovoid.main.adapter.RvAdapter;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
 import com.zerovoid.zerovoidframe.R;
 
 
-import org.json.JSONArray;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cc.zerovoid.main.biz.DataHelper;
 
 /**
  * 主界面，目录
