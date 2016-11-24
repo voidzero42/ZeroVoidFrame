@@ -23,7 +23,7 @@
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="xxx"/>
+            android:text="@{user.name}"/>
 
         <TextView
             android:id="@+id/textView18"
@@ -35,6 +35,6 @@
             android:id="@+id/textView19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="xxx"/>
+            android:text="@{user.age}"/>
     </LinearLayout>
 </layout>

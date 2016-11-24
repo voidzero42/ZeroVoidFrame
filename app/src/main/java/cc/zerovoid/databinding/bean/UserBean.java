@@ -11,4 +11,20 @@ package cc.zerovoid.databinding.bean;
 
 public class UserBean {
 
+    private final String name;
+    private final String age;
+
+    public UserBean(String name, String age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
 }

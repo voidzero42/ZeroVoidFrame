@@ -2,13 +2,12 @@ package cc.zerovoid.main.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.zerovoid.zerovoidframe.R;
 
-import cc.zerovoid.databinding.DataBindingFragment;
+import cc.zerovoid.databinding.fragment.DataBindingFragment;
 
 /**
  * <p>
