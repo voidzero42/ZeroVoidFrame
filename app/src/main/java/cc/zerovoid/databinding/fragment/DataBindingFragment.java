@@ -27,12 +27,12 @@ public class DataBindingFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.frgm_databinding, null);
-        DataBindingUtil.setContentView(getActivity(), R.layout.frgm_databinding);
+//        View view = inflater.inflate(R.layout.frgm_databinding, null);
+//        DataBindingUtil.setContentView(getActivity(), R.layout.frgm_databinding);
 //        DataBindingFragmentBinding binding=DataBindingUtil.inflate(inflater, R.layout.frgm_databinding, container, false);
-        FrgmDatabindingBinding bingding=DataBindingUtil.inflate(inflater, R.layout.frgm_databinding, container, false);
-        bingding.setUser(new UserBean("吴格非","20"));
-        return view;
+        FrgmDatabindingBinding binding = DataBindingUtil.inflate(inflater, R.layout.frgm_databinding, container, false);
+        binding.setUser(new UserBean("吴格非", "20"));
+        return binding.getRoot();
     }
 
 
