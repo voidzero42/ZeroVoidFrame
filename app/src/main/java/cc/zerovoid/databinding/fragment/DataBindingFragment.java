@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import com.zerovoid.zerovoidframe.R;
 import com.zerovoid.zerovoidframe.databinding.FrgmDatabindingBinding;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import cc.zerovoid.databinding.bean.UserBean;
 
 /**
@@ -31,8 +34,21 @@ public class DataBindingFragment extends Fragment {
 //        DataBindingUtil.setContentView(getActivity(), R.layout.frgm_databinding);
 //        DataBindingFragmentBinding binding=DataBindingUtil.inflate(inflater, R.layout.frgm_databinding, container, false);
         FrgmDatabindingBinding binding = DataBindingUtil.inflate(inflater, R.layout.frgm_databinding, container, false);
-        binding.setUser(new UserBean("吴格非", "20"));
+        initBindingData(binding);
         return binding.getRoot();
+    }
+
+    private void initBindingData(FrgmDatabindingBinding binding) {
+        binding.setMyStr("我的字符串");
+        binding.setListPos(0);
+        binding.setMapKey("name");
+        binding.setUser(new UserBean("吴格非", "20"));
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("《安卓从入门到放弃》");
+        binding.setMyList(arrayList);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("name", "我也不知道什么是Map！");
+        binding.setMyMap(map);
     }
 
 

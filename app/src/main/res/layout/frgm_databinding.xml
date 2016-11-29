@@ -3,9 +3,49 @@
 
     <data>
 
+        <import type="cc.zerovoid.databinding.bean.UserBean"/>
+
+        <import type="java.util.ArrayList"/>
+
+        <import type="java.util.List"/>
+
+        <import type="java.util.HashMap"/>
+
+        <import type="cc.zerovoid.databinding.handler.MyEventHandler"/>
+
+        <variable
+            name="myHandler"
+            type="MyEventHandler"/>
+
         <variable
             name="user"
-            type="cc.zerovoid.databinding.bean.UserBean"/>
+            type="UserBean"/>
+
+        <variable
+            name="myStr"
+            type="String"/>
+
+        <variable
+            name="myList"
+            type="ArrayList"/>
+
+        <variable
+            name="myMap"
+            type="HashMap"/>
+
+        <variable
+            name="listPos"
+            type="int"/>
+
+        <variable
+            name="mapKey"
+            type="String"/>
+
+        <variable
+            name="arrayNum"
+            type="int"/>
+
+
     </data>
 
     <LinearLayout
@@ -29,6 +69,7 @@
             android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{myHandler::onClickMe}"
             android:text="年龄"/>
 
         <TextView
@@ -36,5 +77,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{user.age}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{myStr}"/>
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@{myList[0]}"/>-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@{myMap[mapKey]}"/>-->
     </LinearLayout>
 </layout>
