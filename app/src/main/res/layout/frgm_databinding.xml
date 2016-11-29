@@ -27,11 +27,15 @@
 
         <variable
             name="myList"
-            type="ArrayList"/>
+            type="ArrayList&lt;String>"/>
+
+        <variable
+            name="myListMap"
+            type="ArrayList&lt;HashMap&lt;String, String>>"/>
 
         <variable
             name="myMap"
-            type="HashMap"/>
+            type="HashMap&lt;String, String>"/>
 
         <variable
             name="listPos"
@@ -69,7 +73,6 @@
             android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{myHandler::onClickMe}"
             android:text="年龄"/>
 
         <TextView
@@ -83,14 +86,34 @@
             android:layout_height="wrap_content"
             android:text="@{myStr}"/>
 
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@{myList[0]}"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{myList[0]}"/>
 
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@{myMap[mapKey]}"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{myList[listPos]}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{(myListMap[0])[mapKey]}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{myMap["myMapKey"]}'/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{myMap[`myMapKey`]}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{myMap[mapKey]}'/>
     </LinearLayout>
 </layout>

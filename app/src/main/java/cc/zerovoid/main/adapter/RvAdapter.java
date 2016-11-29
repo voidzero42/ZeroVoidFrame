@@ -46,7 +46,7 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.RvViewHolder> {
 
         private TextView tv;
 
-        public RvViewHolder(View itemView, final Context context, final List<HashMap<String, Object>> data) {
+        RvViewHolder(View itemView, final Context context, final List<HashMap<String, Object>> data) {
             super(itemView);
             tv = (TextView) itemView;
             tv.setPadding(15, 15, 15, 15);

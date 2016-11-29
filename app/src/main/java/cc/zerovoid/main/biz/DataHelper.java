@@ -18,10 +18,10 @@ public class DataHelper {
     public static List<HashMap<String, Object>> getData() {
         List<HashMap<String, Object>> data = new ArrayList<>();
         data.add(getMap("1.屏幕适配器", ScreenAdapterActivity.class));
-        data.add(getMap("2.验证码功能demo", VerifyCodeActivity.class));
+        data.add(getMap("2.验证码demo", VerifyCodeActivity.class));
         data.add(getMap("3.Test", TestActivity.class));
         data.add(getMap("4.五子棋", GoBangActivity.class));
-        data.add(getMap("5.Fragment", CommonFragmentActivity.class));
+        data.add(getMap("5.学习数据绑定", CommonFragmentActivity.class));
         return data;
     }
 

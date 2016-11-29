@@ -39,15 +39,23 @@ public class DataBindingFragment extends Fragment {
     }
 
     private void initBindingData(FrgmDatabindingBinding binding) {
+
         binding.setMyStr("我的字符串");
         binding.setListPos(0);
         binding.setMapKey("name");
         binding.setUser(new UserBean("吴格非", "20"));
+
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("《安卓从入门到放弃》");
         binding.setMyList(arrayList);
+
         HashMap<String, String> map = new HashMap<>();
-        map.put("name", "我也不知道什么是Map！");
+        map.put("myMapKey", "我也不知道什么是Map！");
+        map.put("name", "我也不知道什么是Mapnamenamenamename！");
+        ArrayList<HashMap<String, String>> listMap = new ArrayList<>();
+        listMap.add(map);
+
+        binding.setMyListMap(listMap);
         binding.setMyMap(map);
     }
 
