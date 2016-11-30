@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import cc.zerovoid.databinding.bean.UserBean;
+import cc.zerovoid.databinding.handler.MyEventHandler;
 
 /**
  * <p>
@@ -57,6 +58,8 @@ public class DataBindingFragment extends Fragment {
 
         binding.setMyListMap(listMap);
         binding.setMyMap(map);
+
+        binding.setMyHandler(new MyEventHandler());
     }
 
 
