@@ -11,7 +11,7 @@ import com.zerovoid.lib.util.ToastHelper;
 public class MyEventHandler {
 
     public void onClickMe(View view) {
-        ToastHelper.getInstance()._toast("xxx");
+        ToastHelper.getInstance()._toast("Event Handling : Method Reference");
     }
 
 }
