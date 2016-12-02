@@ -16,6 +16,8 @@ import java.util.HashMap;
 
 import cc.zerovoid.databinding.bean.UserBean;
 import cc.zerovoid.databinding.handler.MyEventHandler;
+import cc.zerovoid.databinding.handler.MyPresenter;
+import cc.zerovoid.databinding.handler.MyTask;
 
 /**
  * <p>
@@ -44,7 +46,7 @@ public class DataBindingFragment extends Fragment {
         binding.setMyStr("我的字符串");
         binding.setListPos(0);
         binding.setMapKey("name");
-        binding.setUser(new UserBean("吴格非", "20"));
+        binding.setUser(new UserBean("吴格非", "20", false));
 
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("《安卓从入门到放弃》");
@@ -60,6 +62,8 @@ public class DataBindingFragment extends Fragment {
         binding.setMyMap(map);
 
         binding.setMyHandler(new MyEventHandler());
+        binding.setMyPresenter(new MyPresenter());
+        binding.setMyTask(new MyTask());
     }
 
 

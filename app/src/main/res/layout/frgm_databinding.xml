@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <import type="cc.zerovoid.databinding.bean.UserBean"/>
 
         <import type="java.util.ArrayList"/>
@@ -70,58 +72,65 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="名字"/>
 
             <TextView
-                android:id="@+id/textView17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{user.name}"/>
 
             <TextView
-                android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="年龄"/>
 
             <TextView
-                android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{user.age}"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{myStr}"/>
+                android:text="是否成年？如果成年则显示，否则不显示"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我已经成年了"
+                android:visibility="@{user.isAdult?View.VISIBLE:View.GONE}"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{myList[0]}"/>
+                android:text="@{`我的字符串`+myStr}"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{myList[listPos]}"/>
+                android:text="@{`myList[0]`+myList[0]}"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{(myListMap[0])[mapKey]}"/>
+                android:text="@{`myList[listPos]`+myList[listPos]}"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text='@{myMap["myMapKey"]}'/>
+                android:text="@{`(myListMap[0])[mapKey]`+(myListMap[0])[mapKey]}"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{`myMap[顿myMapKey顿]：`+myMap[`myMapKey`]}"/>
+                android:text='@{`myMap[-myMapKey-](双引号)`+myMap["myMapKey"]}'/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`myMap[-myMapKey-](顿号)：`+myMap[`myMapKey`]}"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -137,13 +146,14 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{() -> myPresenter.onPresenterSaveClick(myTask)}"
+                android:onClick="@{(v) -> true ? myPresenter.onPresenterSaveClick(myTask):void }"
                 android:text="事件处理：Listener Bindings"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="请"
                 android:text="@={user.name}"/>
 
