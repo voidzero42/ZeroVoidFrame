@@ -18,6 +18,7 @@ import cc.zerovoid.databinding.bean.UserBean;
 import cc.zerovoid.databinding.handler.MyEventHandler;
 import cc.zerovoid.databinding.handler.MyPresenter;
 import cc.zerovoid.databinding.handler.MyTask;
+import cc.zerovoid.databinding.observe.UserWithObservable;
 
 /**
  * <p>
@@ -46,7 +47,8 @@ public class DataBindingFragment extends Fragment {
         binding.setMyStr("我的字符串");
         binding.setListPos(0);
         binding.setMapKey("name");
-        binding.setUser(new UserBean("吴格非", "20", false));
+        binding.setUser(new UserWithObservable("吴格非", "20", false));
+//        binding.setUser(new UserBean("吴格非", "20", false));
 
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("《安卓从入门到放弃》");

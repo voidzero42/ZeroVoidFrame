@@ -29,7 +29,7 @@
 
         <variable
             name="user"
-            type="UserBean"/>
+            type="cc.zerovoid.databinding.observe.UserWithObservable"/>
 
         <variable
             name="myStr"
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{user.name}"/>
+                android:text="@={user.name}"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -153,9 +153,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:focusable="false"
-                android:hint="请"
-                android:text="@={user.name}"/>
+                android:hint="请输入名子"
+                android:text="@={user.name}"
+                android:id="@+id/editText2"/>
 
         </LinearLayout>
 
